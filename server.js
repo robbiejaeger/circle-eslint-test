@@ -1,6 +1,7 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
+
+const app = express();
 
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
@@ -8,12 +9,12 @@ app.use(bodyParser.json());
 app.locals.breads = [
   {
     id: 1,
-    type: "sourdough"
+    type: 'sourdough',
   },
   {
     id: 2,
-    type: "rye"
-  }
+    type: 'rye',
+  },
 ];
 
 app.get('/api/v1/breads', (request, response) => {
@@ -21,5 +22,5 @@ app.get('/api/v1/breads', (request, response) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log('App running on port ' + app.get('port'));
+  console.log(`App running on port ${app.get('port')}`);
 });
